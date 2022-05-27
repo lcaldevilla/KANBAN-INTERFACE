@@ -39,8 +39,7 @@ module.exports = (function() {
          * @type {string}
          * @public
          */
-        this.gstaticUrl = 'http://localhost/charts/loader.js';
-        //this.gstaticUrl = 'http://localhost/charts/loader.js';
+        this.gstaticUrl = 'https://www.gstatic.com/charts/loader.js';
 
         /**
          * JSON object of config items.
@@ -459,7 +458,7 @@ module.exports = (function() {
                 loaded = true;
             }
         }
-        
+
         return loaded;
     };
 

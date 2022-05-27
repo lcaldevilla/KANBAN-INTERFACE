@@ -1,0 +1,39 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  pull_request:
+  push:
+
+name: "Continuous Integration"
+
+jobs:
+  tests:
+    name: "Tests"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
+          - "8.0"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "intl"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Install dependencies with composer"
+        run: "composer update --no-interaction --no-progress"
+
+      - name: "Run tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit"

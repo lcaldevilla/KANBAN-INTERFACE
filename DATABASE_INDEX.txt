@@ -1,0 +1,4 @@
+CREATE INDEX idx_pedido_repo_id ON PEDIDO_REPOSICION_DET (pedido_repo_id);
+CREATE INDEX idx_cod_producto ON PRODUCTO (cod_producto);
+CREATE INDEX idx_usuario_id ON USUARIO (usuario_id);
+CREATE INDEX idx_fecha_creacion ON PEDIDO_REPOSICION (fecha_creacion);
